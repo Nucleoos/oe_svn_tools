@@ -1,0 +1,1 @@
+python oe-svnbackup.py --repos_dir="d:\Repositories" --bak_dir="e:\svn_backup"
