@@ -47,7 +47,7 @@ def svn_getyoungest_revision(repo_path):
 
 def svn_create(repo_path):
     '''
-    svnadmin create ¡ª Create a new, empty repository.
+    svnadmin create - Create a new, empty repository.
     '''
 
     cmd = "%s create %s" % (svn_admin, repo_path)
@@ -99,26 +99,24 @@ def svn_repo_restore(repo_dump_path):
                 #print "dump file is <%s>" % (full_path)
         
         #######################################################################
-        # Step 3. restore repository from dump file 
+        # Step 3. restore repository from newest dump file 
 
+        repo_dump_file = sorted(repo_backup_file_list, reverse=True)[0]
+        logger.info("Restore from dump file <%s>" % (repo_dump_file))
+        ret = svn_load(repo_path, repo_dump_file)
+        if ret <> 0:
+            raise MyError("restore repo failed !")
+
+        ''' 
         for repo_dump_file in repo_backup_file_list:
             logger.info("Restore from dump file <%s>" % (repo_dump_file))
             ret = svn_load(repo_path, repo_dump_file)
             if ret <> 0:
                 raise MyError("restore repo failed !")
-        
-        '''
-        last_rev = '7'        
-        repo_dump_file = os.path.join(repo_dump_path, repo_name + "-baseline-" + last_rev)
-        print "Restore from dump file <%s>" % (repo_dump_file)
-        
-        ret = svn_load(repo_path, repo_dump_file)
-        if ret <> 0:
-            raise MyError("restore repo failed !")
         '''
         
     except Exception as e:
-        logger.info("Restore failed, catched exception: \n\t" + str(e))
+        logger.info("Restore failed, catched exception: \n\t%s" % str(e))
             
         return 1
 
