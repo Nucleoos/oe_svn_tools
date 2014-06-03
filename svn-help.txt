@@ -1,0 +1,15 @@
+Use the following command for that:
+
+svnadmin dump --incremental repository >result.inc
+What size are you repositories? It's really worth the effort to create incremental backups instead full backups? BTW: an svnadmin dump --help had helped.
+
+Assuming you have several incremental dump files, going back to the beginning of the repository's creation, sure you can create a new repository from it: 
+
+svnadmin create newrepo 
+svnadmin load newrepo < dumpfile1 
+svnadmin load newrepo < dumpfile2 
+svnadmin load newrepo < dumpfile3 
+svnadmin load newrepo < dumpfile4 
+etc. 
+
+where dumpfile1 is the one that begins at revision 0, dumpfile2 begins at or after where dumpfile1 left off, etc. 
