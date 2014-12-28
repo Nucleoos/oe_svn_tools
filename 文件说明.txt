@@ -1,0 +1,10 @@
+=================================================================================
+本目录中的文件是SVN #1 服务器上目录“C:\Program Files\VisualSVN Server\bin\”的备份
+
+1）htpasswd.exe 修改密码的程序
+2）oe-backup-svn.bat 批量备份svn 代码仓库的批处理，内部调用oe-svnbackup.py
+3）oe-post-commit.py 提交变化代码到svn仓库后的钩子程序
+4）oe-pre-commit.py 提交变化代码到svn仓库前的钩子程序
+5）oe-svnbackup.py  备份svn仓库的程序
+6）oe-svnrestore.py 还原svn仓库的程序
+7）svn-hook.txt 如何设置钩子程序的帮助文档

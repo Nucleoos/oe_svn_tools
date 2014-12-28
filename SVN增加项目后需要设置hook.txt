@@ -1,0 +1,5 @@
+﻿pre-commit hook的代码：
+c:\python27\python.exe "C:\Program Files\VisualSVN Server\bin\oe-pre-commit.py" %1 %2
+
+post-commit hook的代码：
+c:\python27\python.exe "C:\Program Files\VisualSVN Server\bin\oe-post-commit.py" %1 %2

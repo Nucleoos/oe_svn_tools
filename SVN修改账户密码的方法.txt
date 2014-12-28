@@ -1,0 +1,15 @@
+
+噢易的svn使用的是VirsualSVNServer，修改密码的程序是VisualSVNServer自带的htpasswd.exe。
+路径是 “C:\Program Files\VisualSVN Server\bin”。
+svn的账户密码保存在文件 “D:\Repositories\htpasswd”中。
+
+htpasswd.exe 的使用方法如下：
+
+修改 user_a 的密码：
+htpasswd.exe "D:\Repositories\htpasswd" user_a
+
+删除 user_a
+htpasswd.exe -d "D:\Repositories\htpasswd" user_a
+
+详细参数说明见 
+http://httpd.apache.org/docs/2.0/programs/htpasswd.html
